@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="aboutClass" namespace="/" extends="struts-default">
+
+        <action name="login" class="homework.action.LoginAction">
+            <result name="success">/jsp/showClass.jsp</result>
+            <result name="error">/login/login.jsp</result>
+        </action>
+
+        <action name="*_Class" class="homework.action.ClassAction" method="{1}Class">
+            <result name="success">/jsp/showClass.jsp</result>
+            <result name="input">/jsp/updateClass.jsp</result>
+            <result name="showClassOfStudents">/jsp/stuInfo.jsp</result>
+            <allowed-methods>queryClass,addClass,deleteClass,updateClass,inputClass,detailsClass</allowed-methods>
+        </action>
+
+        <action name="*_Student" class="homework.action.StudentAction" method="{1}Student">
+            <result name="success">/jsp/stuInfo.jsp</result>
+            <result name="input">/jsp/updateStudent.jsp</result>
+            <allowed-methods>addStudent,inputStudent,updateStudent,deleteStudent</allowed-methods>
+        </action>
+
+        <!--有关于学生信息查询-->
+        <action name="queryStudent" class="homework.action.StuAction" method="queryStuInfo">
+            <result name="success">/jsp/stuInfo.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

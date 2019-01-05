@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <!--我的第一次作业(查询学生信息) 并结合第二次作业:拦截器-->
+    <package name="stuQuery" namespace="/" extends="struts-default">
+
+        <!--声明拦截器-->
+        <interceptors>
+            <interceptor name="myInterceptor" class="homework.Action.MyInterceptor"/>
+
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="myInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--全局结果集-->
+        <global-results>
+            <result name="login">/stuQuery/jsp/login.jsp</result>
+        </global-results>
+
+        <!--有关于学生信息查询-->
+        <action name="queryStudent" class="homework.Action.StuAction" method="queryStuInfo">
+            <interceptor-ref name="myStack"/>
+            <result name="success">/stuQuery/jsp/stuInfo.jsp</result>
+        </action>
+
+        <!--用户登录-->
+        <action name="testLogin" class="homework.Action.LoginAction" method="execute">
+            <result name="success">/stuQuery/jsp/stuInfo.jsp</result>
+            <result name="failed">/stuQuery/jsp/login.jsp</result>
+        </action>
+
+    </package>
+
+
+
+</struts>

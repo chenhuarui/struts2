@@ -1,0 +1,31 @@
+.form {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-167px 0 0 -214px;
+}
+
+.select {
+
+}
+
+.show {
+    background-color: black;
+    color:white;
+}
+
+.table {
+    position:absolute;
+    top:55%;
+    left:42%;
+    margin:-150px 0 0 -200px;
+}
+
+.age {
+    text-align: right;
+}
+
+.button {
+    border-color: blue;
+    border-width: 1px;
+}

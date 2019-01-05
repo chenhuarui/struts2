@@ -1,0 +1,55 @@
+.form {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-167px 0 0 -214px;
+}
+
+.formClass {
+    position: absolute;
+    top: 89%;
+    left: 77%;
+    margin: -167px 0 0 -266px;
+}
+
+.select {
+
+}
+
+.addClass {
+    position:absolute;
+    top: 50%;
+    left: 63%;
+    margin:-150px 0 0 -200px;
+}
+
+.ID {
+    text-align: center;
+}
+
+.show {
+    background-color: black;
+    color:white;
+}
+
+.table {
+    position:absolute;
+    top:55%;
+    left:42%;
+    margin:-150px 0 0 -200px;
+}
+
+.option {
+    text-align: center;
+}
+
+.button {
+    border-color: blue;
+    border-width: 1px;
+}
+
+.addStudent{
+    position: absolute;
+    margin-left: 885px;
+    margin-top: 142px;
+}

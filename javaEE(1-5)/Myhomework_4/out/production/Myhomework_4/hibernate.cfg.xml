@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/homework_your</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <property name="connection.username">root</property>
+        <property name="connection.password">301215</property>
+
+         <!--DB schema will be updated if needed -->
+         <!--<property name="hbm2ddl.auto">update</property>-->
+
+        <!--配置Hibernate的基本信息-->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!--执行操作的是否在控制台打印SQL-->
+        <property name="show_sql">true</property>
+
+        <!--是否对SQL进行格式化-->
+        <property name="format_sql">false</property>
+
+        <mapping resource="homework/entity/ClazzEntity.hbm.xml"/>
+        <mapping class="homework.entity.ClazzEntity"/>
+        <mapping class="homework.entity.StudentEntity"/>
+        <mapping resource="homework/entity/StudentEntity.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

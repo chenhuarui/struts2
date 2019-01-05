@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <!--我的作业(查询学生信息)-->
+    <package name="stuQuery" namespace="/" extends="struts-default">
+
+        <!--用户登录-->
+        <action name="Login" class="homework.Action.LoginAction" method="execute">
+            <result name="success">/stuQuery/jsp/stuInfo.jsp</result>
+            <result name="failed">/stuQuery/jsp/login.jsp</result>
+        </action>
+
+        <!--有关于学生信息查询-->
+        <action name="queryStudent" class="homework.Action.StuAction" method="queryStuInfo">
+            <result name="success">/stuQuery/jsp/stuInfo.jsp</result>
+        </action>
+
+        <!--有关于文件上传-->
+        <action name="upload" class="homework.Action.UploadAction" method="execute">
+            <result name="success">/stuQuery/jsp/stuInfo.jsp</result>
+
+            <interceptor-ref name="defaultStack">
+                <param name="fileUpload.maximumSize">20000000000000</param>
+                <param name="fileUpload.allowedTypes">text/plain,application/msword</param>
+                <param name="fileUpload.allowedExtensions">.txt,.doc,.action</param>
+            </interceptor-ref>
+        </action>
+
+        <!--有关文件的下载-->
+        <action name="downloadFile" class="homework.Action.DownloadAction">
+            <result type="stream">
+                <!-- 动态文件下载的，事先并不知道未来的文件类型，那么我们可以把它的值设置成为：
+                application/octet-stream;charset=ISO8859-1 ，注意一定要加入charset，否则某些时候会导致下载的文件出错； -->
+                <param name="contentType">
+                    application/octet-stream;charset=ISO8859-1
+                </param>
+                <param name="inputName">downloadFile</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+
+    </package>
+
+
+</struts>
